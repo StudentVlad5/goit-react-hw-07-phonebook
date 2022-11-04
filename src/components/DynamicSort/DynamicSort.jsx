@@ -1,6 +1,6 @@
 function DynamicSort(property) {
     return function (a,b) {
-          const result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+          const result = (a[property].toUpperCase() < b[property].toUpperCase()) ? -1 : (a[property] > b[property]) ? 1 : 0;
           return result;
     }
   }
