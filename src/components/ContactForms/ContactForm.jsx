@@ -1,13 +1,12 @@
 import {useState} from "react";
-import { useSelector } from "react-redux";
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { getContacts } from '../../redux/selectors';
-// import { addContact } from "../../redux/contactsSlice";
+import { addContact } from "../../redux/operations";
 import DynamicSort from '../DynamicSort/DynamicSort';
 import { nanoid } from 'nanoid';
 import propTypes from 'prop-types';
 
-function  ContactForm  (contacts) {
+function  ContactForm  ({contacts}) {
     const [initial_state, setInitial_state] = useState({
         name: "",
         phone: "",
@@ -15,7 +14,7 @@ function  ContactForm  (contacts) {
     // const contacts = useSelector(getContacts
     //     .sort(DynamicSort("name"))
     //     );
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
 function handleChangeForm  (event) {
     const {name, value} = event.target;
@@ -25,20 +24,20 @@ function handleChangeForm  (event) {
 function handleFormSubmit  (event)  {
     event.preventDefault()
     const id = nanoid();
-    const isValidateForm = validateForm();
+    const isValidateForm =  validateForm();
     if(isValidateForm){
     let newContact = {id:id,name: initial_state.name, phone: initial_state.phone};
     resetForm ();
     console.log(newContact)
-    // dispatch(addContact(newContact));
+    dispatch(addContact(newContact));
 }}
 
 function validateForm () {
     if (!initial_state.name || !initial_state.phone){
-        alert('Some field is empty')
+        alert('Some field is empty');
         return false}
-    if (contacts.filter(key=>key.name === initial_state.name).length > 0){
-     alert("contact already exist");
+    else if ([...contacts].filter(key=>key.name === initial_state.name).length > 0){
+         alert("contact already exist");
     return false}
     else return true
     }
