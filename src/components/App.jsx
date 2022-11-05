@@ -1,7 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { fetchContacts } from "redux/operations";
-// import { deleteContact} from "../redux/contactsSlice";
+import { deleteContact} from "../redux/operations";
 import DynamicSort from './DynamicSort/DynamicSort';
 import { setFilter} from "../redux/filterSlice";
 import {getStatusFilter, getContacts} from '../redux/selectors'
@@ -21,8 +21,9 @@ useEffect(() => {
   dispatch(fetchContacts());
 }, [dispatch]);
 
-function handleRemoveContact (id) {
-  // dispatch(deleteContact(id))
+function handleRemoveContact  (event) {
+  console.log(event);
+return (dispatch(deleteContact(event)))
 }
 
 function handleFilterChange (filter) {dispatch(setFilter(filter))}

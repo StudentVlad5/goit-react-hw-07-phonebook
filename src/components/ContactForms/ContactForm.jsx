@@ -1,20 +1,17 @@
 import {useState} from "react";
 import { useDispatch } from "react-redux";
-import { getContacts } from '../../redux/selectors';
 import { addContact } from "../../redux/operations";
-import DynamicSort from '../DynamicSort/DynamicSort';
 import { nanoid } from 'nanoid';
 import propTypes from 'prop-types';
 
 function  ContactForm  ({contacts}) {
+
     const [initial_state, setInitial_state] = useState({
         name: "",
         phone: "",
     });
-    // const contacts = useSelector(getContacts
-    //     .sort(DynamicSort("name"))
-    //     );
-    const dispatch = useDispatch();
+
+const dispatch = useDispatch();
 
 function handleChangeForm  (event) {
     const {name, value} = event.target;
@@ -26,7 +23,7 @@ function handleFormSubmit  (event)  {
     const id = nanoid();
     const isValidateForm =  validateForm();
     if(isValidateForm){
-    let newContact = {id:id,name: initial_state.name, phone: initial_state.phone};
+    let newContact = {createdAt: new Date().toISOString(), name: initial_state.name, phone: initial_state.phone, id:id};
     resetForm ();
     console.log(newContact)
     dispatch(addContact(newContact));
