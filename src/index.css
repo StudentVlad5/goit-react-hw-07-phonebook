@@ -46,11 +46,13 @@ label {
 }
 input {
   min-width: 100px;
-  height: 30px;
+  min-height: 30px;
   border-radius: 10px;
   margin: 10px;
-  font-size: 18px;
-  padding-left: 10px;
+  padding: 5px 10px;
+}
+input[text] {
+  height: 40px;
 }
 button {
   width:100px;
@@ -71,14 +73,13 @@ button[type="submit"]{
 }
 
 ul {
-  height: 470px;
   overflow-y: scroll;
-  /* width: 600px; */
 }
 .list_section {
   display: flex;
+  min-width: 350px;
+  height: 100vh;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
 }
 li {
