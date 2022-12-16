@@ -7,6 +7,7 @@ export default function App () {
     <div
       style={{
         display: 'flex',
+        minWidth: 555,
         justifyContent: 'center',
         alignItems: 'center',
         fontSize: 20,
