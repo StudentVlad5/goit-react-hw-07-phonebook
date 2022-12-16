@@ -7,10 +7,9 @@ export default function App () {
     <div
       style={{
         display: 'flex',
-        flexDirection:'column',
         justifyContent: 'center',
         alignItems: 'center',
-        fontSize: 32,
+        fontSize: 20,
         color: '#010101'
       }}>
 <ContactForm/>

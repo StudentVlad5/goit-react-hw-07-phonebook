@@ -36,15 +36,16 @@ form {
 }
 
 h2, h5 {
-  margin: 20px;
+  margin: 10px;
   padding: 0;
 }
 label {
   display: flex;
+  flex-direction: column;
   align-items: center;
 }
 input {
-  width: 400px;
+  min-width: 100px;
   height: 30px;
   border-radius: 10px;
   margin: 10px;
@@ -72,7 +73,7 @@ button[type="submit"]{
 ul {
   height: 470px;
   overflow-y: scroll;
-  width: 600px;
+  /* width: 600px; */
 }
 .list_section {
   display: flex;

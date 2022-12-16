@@ -36,7 +36,7 @@ const visibleContacts = getVisibleContacts();
     if(contacts.length === 0){return null}
     return (
         <>
-        <h2>Contacts List: {visibleContacts.length}</h2>
+        <h4>Contacts List: {visibleContacts.length}</h4>
         <h5>Find contact</h5><Filter/>
         <ul>
             {visibleContacts.map(contact => <ContactListItem {...contact} onRemove={handleRemoveContact} key={contact.id}/>)}
